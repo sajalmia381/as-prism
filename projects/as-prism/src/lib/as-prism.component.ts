@@ -6,7 +6,6 @@ import * as Prism from 'prismjs';
     <pre *ngIf="language" [class]="'language-' + language">
       <code #codeEle [class]="'language-' + language">{{code}}</code>
     </pre>
-    {{language}}
   `,
   styles: [
   ]
