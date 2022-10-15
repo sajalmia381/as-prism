@@ -1,0 +1,1 @@
+export type HighlighterCallback = (element: Element) => void

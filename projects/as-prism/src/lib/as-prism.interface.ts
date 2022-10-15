@@ -1,5 +1,5 @@
 import { ElementRef } from "@angular/core";
-import * as Prism from "prismjs";
+import { HighlighterCallback } from "./as-prism.types";
 
 export interface AsPrism {
   element: ElementRef;
@@ -8,5 +8,5 @@ export interface AsPrism {
 
 export interface AsPrismOptions {
   async?: boolean;
-  callback?: Prism.HighlightCallback
+  callback?: HighlighterCallback
 }
