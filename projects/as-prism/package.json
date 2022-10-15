@@ -1,0 +1,30 @@
+{
+  "name": "as-prism",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^14.2.0",
+    "@angular/core": "^14.2.0",
+    "prismjs": "^1.29.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "description": "Angular Code Highlighter",
+  "main": "src/public_api.ts",
+  "author": "Md. Sajal Mia",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sajalmia381/as-prism.git"
+  },
+  "keywords": [
+    "prism",
+    "angular prism",
+    "angular highlighter",
+    "angular prism highlighter"
+  ],
+  "bugs": {
+    "url": "https://github.com/sajalmia381/as-prism/issues"
+  },
+  "homepage": "https://github.com/sajalmia381/as-prism#readme"
+}

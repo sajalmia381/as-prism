@@ -1,27 +1,156 @@
-# AsPrismWorkspace
+<div align="center">
+  <h1>Angular Prism Code Highlighter</h1>
+</div>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
+## Install
 
-## Development server
+```bash
+npm install as-prism --save
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+`prismjs` package is a required dependency
+```bash
+npm install prismjs --save
+```
 
-## Code scaffolding
+## Setup
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#1 Add AsPrismModule to app NgModule
 
-## Build
+```typescript
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+import { AsPrismModule } from 'as-prism';
 
-## Running unit tests
+@NgModule({
+  imports: [
+    CommonModule,
+    BrowserAnimationsModule,
+    AsPrismModule, // ToastrModule added
+  ],
+  bootstrap: [App],
+  declarations: [App],
+})
+class MainModule {}
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#2 Add prism theme css in styles.css or styles.scss or styles.less file
+```css
+/* Prismjs theme */
+@import "prismjs/themes/prism.css";
+```
+INFO: Prism available theme
+```css
+/* Available themes */
+@import "prismjs/themes/prism-coy.css";
+@import "prismjs/themes/prism-dark.css";
+@import "prismjs/themes/prism-funky.css";
+@import "prismjs/themes/prism-okaidia.css";
+@import "prismjs/themes/prism-solarizedlight.css";
+@import "prismjs/themes/prism-tomorrow.css";
+@import "prismjs/themes/prism-twilight.css";
+```
+#3 Optional: import language. 
 
-## Running end-to-end tests
+If you have highlighter use case all over the application. than it's better to import languages in the root component like app.component.ts file
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```typescript
+// language import
+import 'prismjs/components/prism-yaml';
+import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-scss';
+import 'prismjs/components/prism-typescript';
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  ...
+}
+```
+
+## Use
+
+#1 Data
+
+Note*: if your import language in app.component.ts then you don't need to import language in particular file.
+
+```typescript
+import { Component } from '@angular/core';
+
+// Input languages that you are using. Note: HTML language code default imported
+import 'prismjs/components/prism-yaml';
+import 'prismjs/components/prism-json';
+// import 'prismjs/components/prism-scss';
+// import 'prismjs/components/prism-typescript';
+
+@Component({...})
+export class YourComponent {
+  html_language: string = "html"
+  html_code: string = `
+  <h2>THis is simple html code</h2>
+  <p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry</p>
+  <h3>This is simple heading text</h3>
+  <p>Dummy text ever since the <strong>1500s</strong>, when an unknown printer took a galley of type and scrambled</p>`
+
+  yaml_code: string = `
+  - required_engine_version: 8
+  
+  - list: "allowed_dev_files"
+    items:
+    - "/dev/null"
+    append: true
+  
+  - list: "allowed_image"
+    items:
+    - "techincent-ci"
+    append: true
+  
+  - rule: "Accept VPC Peering Connection"
+    tags:
+    - "cloud"
+    source: "aws_cloudtrail"`
+
+  json_code: string = `{
+    "kind": "Deployment",
+    "apiVersion": "apps/v1",
+    "metadata": {
+      "name": "ti-dashboard",
+      "namespace": "techincent",
+    },
+    "spec": {
+      "replicas": 1,
+      "selector": {
+        "matchLabels": {
+          "app": "techincent-dashboard",
+          "role": "techincent"
+        }
+      }
+    }
+  }`
+}
+```
+
+#2 Render as-prism element in html
+```html
+<h2>HTML Code Example</h2>
+<as-prism [code]="html_code" [language]="html_language"></as-prism>
+
+<h2>YAML Code Example</h2>
+<as-prism [code]="yaml_code" language="yaml"></as-prism>
+
+<h2>JSON Code Example</h2>
+<as-prism [code]="json_code" language="json"></as-prism>
+```
+
+INFO: Checkout available languages support [https://prismjs.com/#supported-languages]
+
+---
+
+## License
+
+MIT

@@ -30,7 +30,10 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "prismjs"
+            ]
           },
           "configurations": {
             "production": {
@@ -99,6 +102,37 @@
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "as-prism": {
+      "projectType": "library",
+      "root": "projects/as-prism",
+      "sourceRoot": "projects/as-prism/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/as-prism/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/as-prism/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/as-prism/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/as-prism/src/test.ts",
+            "tsConfig": "projects/as-prism/tsconfig.spec.json",
+            "karmaConfig": "projects/as-prism/karma.conf.js"
           }
         }
       }
