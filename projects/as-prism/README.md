@@ -9,6 +9,7 @@ npm install as-prism --save
 ```
 
 `prismjs` package is a required dependency
+
 ```bash
 npm install prismjs --save
 ```
@@ -18,16 +19,16 @@ npm install prismjs --save
 #1 Add AsPrismModule to app NgModule
 
 ```typescript
-import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from "@angular/common";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import { AsPrismModule } from 'as-prism';
+import { AsPrismModule } from "as-prism";
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserAnimationsModule,
-    AsPrismModule, // ToastrModule added
+    AsPrismModule, // AsPrismModule added
   ],
   bootstrap: [App],
   declarations: [App],
@@ -36,11 +37,14 @@ class MainModule {}
 ```
 
 #2 Add prism theme css in styles.css or styles.scss or styles.less file
+
 ```css
 /* Prismjs theme */
 @import "prismjs/themes/prism.css";
 ```
+
 INFO: Prism available theme
+
 ```css
 /* Available themes */
 @import "prismjs/themes/prism-coy.css";
@@ -51,7 +55,8 @@ INFO: Prism available theme
 @import "prismjs/themes/prism-tomorrow.css";
 @import "prismjs/themes/prism-twilight.css";
 ```
-#3 Optional: import language. 
+
+#3 Optional: import language.
 
 If you have highlighter use case all over the application. than it's better to import languages in the root component like app.component.ts file
 
@@ -77,7 +82,7 @@ export class AppComponent {
 
 #1 Data
 
-Note*: if your import language in app.component.ts then you don't need to import language in particular file.
+Note\*: if your import language in app.component.ts then you don't need to import language in particular file.
 
 ```typescript
 import { Component } from '@angular/core';
@@ -99,17 +104,17 @@ export class YourComponent {
 
   yaml_code: string = `
   - required_engine_version: 8
-  
+
   - list: "allowed_dev_files"
     items:
     - "/dev/null"
     append: true
-  
+
   - list: "allowed_image"
     items:
     - "techincent-ci"
     append: true
-  
+
   - rule: "Accept VPC Peering Connection"
     tags:
     - "cloud"
@@ -136,6 +141,7 @@ export class YourComponent {
 ```
 
 #2 Render as-prism element in html
+
 ```html
 <h2>HTML Code Example</h2>
 <as-prism [code]="html_code" [language]="html_language"></as-prism>
