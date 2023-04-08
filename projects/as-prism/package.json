@@ -1,9 +1,9 @@
 {
   "name": "as-prism",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "peerDependencies": {
-    "@angular/common": "^15.2.6",
-    "@angular/core": "^15.2.6",
+    "@angular/common": "^15.0.0",
+    "@angular/core": "^15.0.0",
     "prismjs": "^1.29.0"
   },
   "dependencies": {
