@@ -161,6 +161,11 @@ INFO: Checkout available languages support [https://prismjs.com/#supported-langu
 
 MIT
 
+# Change Log
+
+- 2.2.0
+  directive base highlighter, Note: developmentApi (it's testing)
+
 # Major Change Log
 
 - 0.x.x -> Support Angular 14.x.x
