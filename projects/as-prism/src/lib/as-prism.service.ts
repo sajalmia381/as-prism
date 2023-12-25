@@ -1,7 +1,6 @@
 import { ElementRef, Injectable } from '@angular/core';
 import * as Prism from "prismjs";
 import { AsPrismOptions } from './as-prism.interface';
-import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
 
 @Injectable()
 export class AsPrismService {
@@ -14,4 +13,8 @@ export class AsPrismService {
       Prism.highlightElement(el.nativeElement, options?.async, options?.callback);
     }
   }
+
+  // public highligh(code: string, language: string): string {
+  //   Prism.highlight(code, language)
+  // }
 }

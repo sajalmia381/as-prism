@@ -4,7 +4,7 @@ import { AsPrismService } from './as-prism.service';
 @Component({
   selector: 'as-prism',
   template: `
-    <pre *ngIf="language" [class]="'language-' + language">
+    <pre [class]="'language-' + language">
       <code #codeEle [class]="'language-' + language">{{code}}</code>
     </pre>
   `

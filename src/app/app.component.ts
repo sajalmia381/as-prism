@@ -75,4 +75,30 @@ export class AppComponent {
       }
     }
   }`
+
+  directive_json_code: string = `{
+    "kind": "Deployment",
+    "apiVersion": "apps/v1",
+    "metadata": {
+      "name": "ti-dashboard",
+      "namespace": "techincent",
+      "uid": "8c754e-kafi-4d13-2457-855e787f4c",
+      "labels": {
+        "app": "techincent-dashboard",
+        "role": "techincent"
+      },
+      "annotations": {
+        "deployment.kubernetes.io/revision": "1"
+      }
+    },
+    "spec": {
+      "replicas": 1,
+      "selector": {
+        "matchLabels": {
+          "app": "techincent-dashboard",
+          "role": "techincent"
+        }
+      }
+    }
+  }`
 }

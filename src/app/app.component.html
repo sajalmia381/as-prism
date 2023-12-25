@@ -1,6 +1,7 @@
 <div class="container">
   <h1>Angular Prism Highlighter</h1>
   <hr>
+
   <h2>HTML Code Example</h2>
   <as-prism [code]="html_code" [language]="html_language"></as-prism>
   
@@ -9,5 +10,12 @@
   
   <h2>JSON Code Example</h2>
   <as-prism [code]="json_code" language="json"></as-prism>
+
+  <h2>Json Example with Directive</h2>
+  <pre asPrism="json">
+    <code asPrism="json">
+      {{directive_json_code}}
+    </code>
+  </pre>
 
 </div>
