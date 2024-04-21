@@ -172,4 +172,4 @@ MIT
 - 1.x.x -> Support Angular Version 15.x.x
 - 2.x.x -> Support Angular Version 16.x.x
 - 2.3.x -> Support Angular Version >= 16.x.x
-
+- 3.x.x -> Support Angular Version >= 17.x.x

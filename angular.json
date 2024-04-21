@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "as-prism-workspace:build:production"
+              "buildTarget": "as-prism-workspace:build:production"
             },
             "development": {
-              "browserTarget": "as-prism-workspace:build:development"
+              "buildTarget": "as-prism-workspace:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "as-prism-workspace:build"
+            "buildTarget": "as-prism-workspace:build"
           }
         },
         "test": {
