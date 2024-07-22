@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Angular Prism Code Highlighter</h1>
+  <h1>Angular Code Highlighter Powered By Prismjs</h1>
 </div>
 
 ## Install
@@ -16,7 +16,7 @@ npm install prismjs --save
 
 ## Setup
 
-#1 Add AsPrismModule to app NgModule
+#### #1. Add AsPrismModule to app NgModule
 
 ```typescript
 import { CommonModule } from "@angular/common";
@@ -36,7 +36,7 @@ import { AsPrismModule } from "as-prism";
 class MainModule {}
 ```
 
-#2 Add prism theme css in styles.css or styles.scss or styles.less file
+#### #2. Add prism theme css in styles.css or styles.scss or styles.less file
 
 ```css
 /* Prismjs theme */
@@ -56,7 +56,7 @@ INFO: Prism available theme
 @import "prismjs/themes/prism-twilight.css";
 ```
 
-#3 Optional: import language.
+#### #3. Optional: import language.
 
 If you have highlighter use case all over the application. than it's better to import languages in the root component like app.component.ts file
 
@@ -80,7 +80,7 @@ export class AppComponent {
 
 ## Use
 
-#1 Data
+#### #1. Data
 
 Note\*: if your import language in app.component.ts then you don't need to import language in particular file.
 
@@ -140,7 +140,7 @@ export class YourComponent {
 }
 ```
 
-#2 Render as-prism element in html
+#### #2. Render as-prism element in html
 
 ```html
 <h2>HTML Code Example</h2>
@@ -153,6 +153,23 @@ export class YourComponent {
 <as-prism [code]="json_code" language="json"></as-prism>
 ```
 
+#### Experimental Render with directive
+Note: Directive is available for Experimental
+
+```html
+<pre asPrism="json">
+  <code>
+    {{directive_json_code}}
+  </code>
+</pre>
+
+<pre asPrism="html">
+  <code>
+    {{html_code}}
+  </code>
+</pre>
+```
+
 INFO: Checkout available languages support [https://prismjs.com/#supported-languages]
 
 ---
@@ -162,9 +179,8 @@ INFO: Checkout available languages support [https://prismjs.com/#supported-langu
 MIT
 
 # Change Log
-
-- 2.2.0
-  directive base highlighter, Note: developmentApi (it's testing)
+- 4.0.1 -> (asPrism="language") directive base render on Expermental api available, as-prism component switch to none encapsulation
+- 2.2.0 -> (asPrism="language") directive base highlighter, Note: developmentApi (it's testing)
 
 # Major Change Log
 

@@ -5,12 +5,18 @@ import {
   Input,
   OnChanges,
   ViewChild,
+  ViewEncapsulation,
   inject,
 } from '@angular/core';
 import { AsPrismService } from './as-prism.service';
 
+/**
+ * @description highlight element
+ * @PublicApi
+ */
 @Component({
   selector: 'as-prism',
+  encapsulation: ViewEncapsulation.None,
   template: `
     <pre [class]="'language-' + language">
       <code #codeEle [class]="'language-' + language">{{code}}</code>
@@ -33,11 +39,11 @@ import { AsPrismService } from './as-prism.service';
   `,
   styles: [
     `
-      :host {
+      .as-prism__host {
         position: relative;
         display: block;
       }
-      :host:hover {
+      .as-prism__host:hover {
         .as-prism__copy-btn {
           opacity: 1;
         }
@@ -58,8 +64,9 @@ import { AsPrismService } from './as-prism.service';
     `,
   ],
   host: {
-    ngSkipHydration: 'true'
-  }
+    ngSkipHydration: 'true',
+    class: 'as-prism__host'
+  },
 })
 export class AsPrismComponent implements OnChanges, AfterViewInit {
   @ViewChild('codeEle') codeEle!: ElementRef;
@@ -68,18 +75,16 @@ export class AsPrismComponent implements OnChanges, AfterViewInit {
   @Input() language: string = 'json';
   @Input() showCopyBtn: boolean = true;
 
-  private _prismService = inject(AsPrismService)
+  private _prismService = inject(AsPrismService);
 
   ngAfterViewInit() {
     this._prismService.highlightElement(this.codeEle);
   }
 
   ngOnChanges(changes: any) {
-    if (changes?.code) {
-      if (this.codeEle?.nativeElement) {
-        this.codeEle.nativeElement.textContent = this.code;
-        this._prismService.highlightElement(this.codeEle);
-      }
+    if (changes?.code && this.codeEle?.nativeElement) {
+      this.codeEle.nativeElement.textContent = this.code;
+      this._prismService.highlightElement(this.codeEle);
     }
   }
 

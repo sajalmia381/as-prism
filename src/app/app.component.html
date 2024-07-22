@@ -1,21 +1,26 @@
 <div class="container">
   <h1>Angular Prism Highlighter</h1>
-  <hr>
+  <hr />
 
   <h2>HTML Code Example</h2>
   <as-prism [code]="html_code" [language]="html_language"></as-prism>
-  
+
   <h2>YAML Code Example</h2>
   <as-prism [code]="yaml_code" language="yaml"></as-prism>
-  
+
   <h2>JSON Code Example</h2>
   <as-prism [code]="json_code" language="json"></as-prism>
 
-  <h2>Json Example with Directive</h2>
+  <h2>Examples with Directive</h2>
   <pre asPrism="json">
-    <code asPrism="json">
+    <code>
       {{directive_json_code}}
     </code>
   </pre>
 
+  <pre asPrism="html">
+    <code>
+      {{html_code}}
+    </code>
+  </pre>
 </div>
