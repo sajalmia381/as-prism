@@ -179,7 +179,7 @@ INFO: Checkout available languages support [https://prismjs.com/#supported-langu
 MIT
 
 # Change Log
-- 4.0.1 -> (asPrism="language") directive base render on Expermental api available, as-prism component switch to none encapsulation
+- 4.0.2 -> (asPrism="language") directive base render on Expermental api available, as-prism component switch to none encapsulation
 - 2.2.0 -> (asPrism="language") directive base highlighter, Note: developmentApi (it's testing)
 
 # Major Change Log
